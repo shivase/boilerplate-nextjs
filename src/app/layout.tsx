@@ -1,13 +1,20 @@
-import Head from "next/head";
-import "./globals.css";
+import { Metadata } from 'next';
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+import './globals.css';
+
+export const metadata: Metadata = {
+  title: 'My Page Title',
+  icons: {
+    icon: '/favicon.png',
+  },
+};
+
+const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <>
-      <Head>
-        <link rel="icon" href="/favicon.png" />
-      </Head>
-      {children}
-    </>
+    <html lang="ja">
+      <body>{children}</body>
+    </html>
   );
-}
+};
+
+export default Layout;
